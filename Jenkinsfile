@@ -7,14 +7,16 @@ pipeline {
                 bat "npm install"
             }
         }
+
         stage('Build') {
             steps {
                 bat "npm run build"
             }
         }
+
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'build/**', fingerprint: true
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
             }
         }
     }
